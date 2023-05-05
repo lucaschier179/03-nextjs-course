@@ -21,7 +21,7 @@ export default function HomeScreen() {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1 className='text'>Login</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
 

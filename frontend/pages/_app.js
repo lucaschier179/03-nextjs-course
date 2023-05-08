@@ -5,7 +5,6 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <style>
       </style>
-      <style classname=""></style>
       <Component {...pageProps} />
     </>
   )

@@ -1,10 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { authService } from '../src/services/auth/authService';
 
 export default function HomeScreen() {
+
   const router = useRouter()
+
   const [values, setValues] = React.useState({
-    usuario: 'lucaschier179',
+    usuario: 'omariosouto',
     senha: 'safepassword',
   });
 
@@ -20,31 +23,39 @@ export default function HomeScreen() {
   }
 
   return (
-    <div>
-      <h1 className='text'>Login</h1>
-      <form onSubmit={(event) => {
+    <div className='flex flex-col justify-center items-center h-screen bg-gradient-to-t from-zinc-700 to-zinc-900'>
+      <div className='flex items-center justify-center flex-col w-full max-w-[350px] p-5 rounded-md bg-white'>
+      <h1 className='flex justify-center text-lg font-semibold'>Login</h1>
+      <form className='flex flex-col gap-y-2' onSubmit={(event) => {
         event.preventDefault();
-
-        router.push('/auth-page-ssr');
-        /* router.push('/auth-page-static'); */
+        authService
+        .login({
+          username: values.usuario,
+          password: values.senha,
+        })
+        .then(() => {
+          /* router.push('/auth-page-static'); */
+          router.push('/auth-page-ssr');
+        })
+        .catch(() => {
+          alert('Usuário ou a senha estão inválidos')
+        })
       }}>
-        <input
-          placeholder="Usuário" name="usuario"
+        <label className='text-lg font-semibold'>Usuário</label>
+        <input className='px-5 py-2 border-b-2 border-[#2b2b2b] bg-[#f0f2f5] outline-none text-base'
+          placeholder="Digite o seu usuário" name="usuario" required
           value={values.usuario} onChange={handleChange}
         />
-        <input
-          placeholder="Senha" name="senha" type="password"
+        <label className='text-lg font-semibold'>Senha</label>
+        <input className='px-5 py-2 border-b-2 border-[#2b2b2b] bg-[#f0f2f5] outline-none text-base'
+          placeholder="Digite a sua senha" name="senha" type="password" required
           value={values.senha} onChange={handleChange}
         />
-{/*         <pre>
-          {JSON.stringify(values, null, 3)}
-        </pre> */}
-        <div>
-          <button>
-            Entrar
-          </button>
-        </div>
+        <button className='flex px-5 py-2 outline-none rounded-md w-full cursor-pointer font-semibold text-base max-w-[350px] justify-center bg-green-800 text-white mt-4'>
+          Entrar
+        </button>
       </form>
+      </div>
     </div>
   );
 }

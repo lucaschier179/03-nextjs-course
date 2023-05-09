@@ -23,7 +23,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen bg-gradient-to-t from-neutral-950 via-neutral-800 to-neutral-950'>
+    <div className='flex flex-col justify-center items-center h-screen bg-gradient-to-t from-neutral-950 via-neutral-700 to-neutral-950'>
       <div className='flex items-center justify-center flex-col w-full max-w-[350px] p-5 rounded-md bg-white'>
       <h1 className='flex justify-center text-lg font-semibold mb-4'>Login</h1>
       <form className='flex flex-col gap-y-2' onSubmit={(event) => {

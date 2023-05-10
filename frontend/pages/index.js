@@ -34,24 +34,24 @@ export default function HomeScreen() {
           password: values.senha,
         })
         .then(() => {
-          router.push('/auth-page-static');
-          // router.push('/auth-page-ssr');
+          // router.push('/auth-page-static');
+          router.push('/auth-page-ssr');
         })
         .catch(() => {
-          alert('Usuário ou a senha estão inválidos')
+          alert('Usuário ou senha inválidos')
         })
       }}>
         <label className='text-lg font-semibold'>Usuário</label>
-        <input className='px-4 py-2 border-b-2 border-[#2b2b2b] bg-[#dadada] outline-none text-base rounded-t-sm'
+        <input className='px-4 py-2 border-b-2 border-[#2b2b2b] bg-[#dadada] text-base rounded-t-sm'
           placeholder="Digite o seu usuário" name="usuario" required
           value={values.usuario} onChange={handleChange}
         />
         <label className='text-lg font-semibold'>Senha</label>
-        <input className='px-4 py-2 border-b-2 border-[#2b2b2b] bg-[#dadada] outline-none text-base rounded-t-sm'
+        <input className='px-4 py-2 border-b-2 border-[#2b2b2b] bg-[#dadada] text-base rounded-t-sm'
           placeholder="Digite a sua senha" name="senha" type="password" required
           value={values.senha} onChange={handleChange}
         />
-        <button className='flex px-5 py-2 mb-4 outline-none rounded-md w-full cursor-pointer font-semibold text-base max-w-[350px] justify-center bg-[#2b2] text-white mt-4'>
+        <button className='flex px-5 py-2 mb-4 rounded-md w-full cursor-pointer font-semibold text-base max-w-[350px] justify-center bg-[#2b2] text-white mt-4'>
           Entrar
         </button>
       </form>

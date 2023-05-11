@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { authService } from '../src/services/auth/authService';
+import { SlLogout } from 'react-icons/sl'
 
 export default function HomeScreen() {
 
@@ -54,6 +55,12 @@ export default function HomeScreen() {
         <button className='flex px-5 py-2 mb-4 rounded-md w-full cursor-pointer font-semibold text-base max-w-[350px] justify-center bg-[#2b2] text-white mt-4'>
           Entrar
         </button>
+{/*         <div className='flex justify-center items-center'>
+          <div className='flex justify-center items-center cursor-pointer gap-1 pb-1 border-b-2 border-transparent hover:border-b-2 hover:border-black'>
+            <SlLogout size={20}></SlLogout>
+            <a href="/logout">Logout</a>
+          </div>
+        </div> */}
       </form>
       </div>
     </div>
